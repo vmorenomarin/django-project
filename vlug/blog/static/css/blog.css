@@ -1,0 +1,35 @@
+:root{
+    font-size: 6.25%;
+    --padding: 10rem;
+    --border: 1px solid #5e5e58;
+    --borderr: 5rem
+}
+
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 16rem;
+}
+
+#contentWrapper{
+    display: flex;
+
+    main#content{
+        width: 70vw;
+        height: calc(100vh - 2 * var(--padding));
+        /* border: var(--border); */
+        /* border-radius: var(--borderr); */
+        margin: 10rem 5rem;
+        padding: var(--padding);
+    }
+
+    aside#sidebar{
+        width: 30vw;
+        border: 1rem solid #5e5e58;
+        border-radius: var(--borderr);
+        margin: 10rem 5rem;
+        padding: var(--padding)
+    }
+}

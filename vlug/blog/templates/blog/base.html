@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>{% block title %}Vlug{% endblock %}</title>
+        <link rel="stylesheet" href="{% static "css/blog.css" %}" rel="stylesheet">
+    </head>
+
+    <body>
+        <div id="contentWrapper">
+            <main id="content">
+                {% block content %}
+                {% endblock %}
+            </main>
+            <aside id="sidebar">
+                <h2>Vlug</h2>
+                <p>Exercising Django</p>    
+            </aside>
+        </div>
+    </body>
+</html>
+     
