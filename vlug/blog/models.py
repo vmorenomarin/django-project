@@ -4,6 +4,12 @@ from django.conf import settings
 from django.db import models
 from django.utils import timezone
 
+class PublishedManager(models.Manager):
+    def get_queryset(self):
+        return (
+            super().get_queryset().filter(status=Post.Status.PUBLISHED)
+        )
+
 # Create your models here.
 class Post(models.Model):
     "Post model class"
@@ -29,6 +35,9 @@ class Post(models.Model):
         default=Status.DRAFT
     )
 
+    objects = models.Manager() # Dado que se han creado otros managers, es necesario especificar el gmanejador genérico
+    published = PublishedManager()
+
     class Meta():
         '''
         Define metadata para el modelo. 
@@ -42,5 +51,5 @@ class Post(models.Model):
             models.Index(fields=['-publish'])
         ]
 
-    # def __str__(self):
-    #     return self.title
+    def __str__(self):
+        return self.title
